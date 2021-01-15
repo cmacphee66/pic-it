@@ -3,12 +3,14 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 
-import CameraModule from './cameraModule/CameraModule';
+// import CameraScreen from './components/CameraScreen';
+import Home from './components/screens/Home';
 
 const App = () => {
   return (
     <View style={styles.conntainer}>
-      <CameraModule></CameraModule>
+      <Home></Home>
+      {/* <CameraScreen></CameraScreen> */}
       <StatusBar style='auto' />
     </View>
   );

@@ -6,7 +6,7 @@ import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
 import * as MediaLibrary from 'expo-media-library';
 
-const CameraModule = () => {
+const CameraScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
 
@@ -121,4 +121,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CameraModule;
+export default CameraScreen;

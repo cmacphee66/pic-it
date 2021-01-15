@@ -3,6 +3,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { Camera } from 'expo-camera';
+import * as Permissions from 'expo-permissions';
+import * as MediaLibrary from 'expo-media-library';
 
 const CameraModule = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -23,7 +25,19 @@ const CameraModule = () => {
 
       if (source) {
         cam.current.resumePreview();
+        handleSave(source);
+        console.log('picture source', source);
       }
+    }
+  };
+
+  const handleSave = async (photo) => {
+    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL); //CAMERA_ROLL
+    if (status === 'granted') {
+      const proceed = await MediaLibrary.createAssetAsync(photo);
+      MediaLibrary.createAlbumAsync('Pick-it-App Photos', proceed);
+    } else {
+      console.warn('Permission Needed');
     }
   };
 

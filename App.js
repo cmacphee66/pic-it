@@ -3,16 +3,22 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 
-// import CameraScreen from './components/CameraScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+
+import CameraScreen from './components/CameraScreen';
 import Home from './components/screens/Home';
 
 const App = () => {
+  const Stack = createStackNavigator();
+
   return (
-    <View style={styles.conntainer}>
-      <Home></Home>
-      {/* <CameraScreen></CameraScreen> */}
-      <StatusBar style='auto' />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name='Home' component={Home} />
+        <Stack.Screen name='CameraScreen' component={CameraScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

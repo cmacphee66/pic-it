@@ -32,7 +32,7 @@ const CameraScreen = () => {
   };
 
   const handleSave = async (photo) => {
-    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL); //CAMERA_ROLL
+    const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL); //MEDIA_LIBRARY
     if (status === 'granted') {
       const proceed = await MediaLibrary.createAssetAsync(photo);
       MediaLibrary.createAlbumAsync('Pick-it-App Photos', proceed);
@@ -58,7 +58,6 @@ const CameraScreen = () => {
     <View style={styles.container}>
       <Camera ref={cam} style={styles.camera} type={type}>
         <View style={styles.buttonContainer}>
-          <View></View>
           <TouchableOpacity
             style={styles.flipButton}
             onPress={() => {

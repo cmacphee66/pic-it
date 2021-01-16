@@ -1,17 +1,32 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { StyleSheet, Text, View, Image, Dimentions } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Dimentions,
+  Pressable,
+} from 'react-native';
 
-const Home = () => {
+const pressHandler = () => {};
+
+const Home = ({ navigation }) => {
+  const takePictureButton = () => {
+    navigation.navigate('CameraScreen');
+  };
   return (
     <View style={styles.container}>
       <View>
         <Image style={styles.logo} source={require('../../assets/logo.png')} />
       </View>
-      <View style={styles.button}>
+      <Pressable
+        title='got to camera'
+        style={styles.button}
+        onPress={takePictureButton}>
         <Text style={styles.text}>TAKE PICTURE</Text>
-      </View>
+      </Pressable>
     </View>
   );
 };

@@ -74,7 +74,7 @@ const CameraScreen = () => {
             onPress={() => {
               takePicture();
             }}>
-            <Text style={styles.text}> Take picture </Text>
+            <Text style={styles.text}> Take </Text>
           </TouchableOpacity>
         </View>
       </Camera>
@@ -85,18 +85,19 @@ const CameraScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    width: '100%',
+    height: '100%',
   },
   camera: {
     flex: 1,
   },
   buttonContainer: {
-    flex: 1,
     backgroundColor: 'transparent',
-    flexDirection: 'row',
+    flexDirection: 'column',
     margin: 20,
+    top: '70%',
   },
   flipButton: {
-    flex: 1,
     height: 40,
     alignSelf: 'center',
     alignItems: 'center',
@@ -105,7 +106,6 @@ const styles = StyleSheet.create({
     borderRadius: 20,
   },
   captureButton: {
-    flex: 1,
     height: 40,
     alignSelf: 'center',
     alignItems: 'center',

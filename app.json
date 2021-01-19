@@ -10,7 +10,10 @@
   },
   "assetBundlePatterns": ["**/*"],
   "ios": {
-    "supportsTablet": true
+    "supportsTablet": true,
+    "infoPlist": {
+      "NSPhotoLibraryAddUsageDescription": "This app uses photo library"
+    }
   },
   "android": {
     "adaptiveIcon": {

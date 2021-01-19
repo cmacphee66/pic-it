@@ -1,10 +1,18 @@
 /** @format */
 
 import React, { useState, useEffect, useRef } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  StatusBar,
+  Pressable,
+} from 'react-native';
 import { Camera } from 'expo-camera';
 import * as Permissions from 'expo-permissions';
 import * as MediaLibrary from 'expo-media-library';
+import { Entypo } from '@expo/vector-icons';
 
 const CameraScreen = () => {
   const [hasPermission, setHasPermission] = useState(null);
@@ -56,9 +64,10 @@ const CameraScreen = () => {
   }
   return (
     <View style={styles.container}>
+      <StatusBar barStyle='light-content' backgroundColor='black'></StatusBar>
       <Camera ref={cam} style={styles.camera} type={type}>
         <View style={styles.buttonContainer}>
-          <TouchableOpacity
+          <Pressable
             style={styles.flipButton}
             onPress={() => {
               setType(
@@ -67,15 +76,24 @@ const CameraScreen = () => {
                   : Camera.Constants.Type.back,
               );
             }}>
-            <Text style={styles.text}> Flip </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
+            <Entypo name='cycle' size={24} color='black' />
+            <Text style={styles.text}></Text>
+          </Pressable>
+          <Pressable
             style={styles.captureButton}
             onPress={() => {
               takePicture();
             }}>
-            <Text style={styles.text}> Take </Text>
-          </TouchableOpacity>
+            <Entypo
+              name='circle'
+              size={55}
+              color='white'
+              onPress={() => {
+                takePicture();
+              }}
+            />
+            <Text style={styles.text}></Text>
+          </Pressable>
         </View>
       </Camera>
     </View>
@@ -95,24 +113,20 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     flexDirection: 'column',
     margin: 20,
-    top: '70%',
+    top: '80%',
+    alignItems: 'center',
   },
   flipButton: {
-    height: 40,
-    alignSelf: 'center',
-    alignItems: 'center',
+    position: 'absolute',
+    bottom: -55,
+    right: -110,
+    width: '80%',
+    height: 50,
     justifyContent: 'center',
-    backgroundColor: 'red',
-    borderRadius: 20,
-  },
-  captureButton: {
-    height: 40,
-    alignSelf: 'center',
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'black',
-    borderRadius: 20,
+    borderRadius: 35,
   },
+  footer: {},
   text: {
     fontSize: 18,
     color: 'white',

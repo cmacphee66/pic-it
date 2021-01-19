@@ -1,8 +1,11 @@
 /** @format */
 
+/** @format */
+
 import React, { useState } from 'react';
-import { Button, View, Image, StyleSheet } from 'react-native';
+import { Button, View, Image, StyleSheet, Pressable } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
+import { AntDesign } from '@expo/vector-icons';
 
 const ImagePickerComponent = () => {
   const [image, setImage] = useState(null);
@@ -10,7 +13,7 @@ const ImagePickerComponent = () => {
   const pickImage = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
-      allowsEditing: true,
+      allowsEditing: false,
     });
 
     if (!result.cancelled) {
@@ -19,14 +22,15 @@ const ImagePickerComponent = () => {
   };
 
   return (
-    <View style={StyleSheet.conatiner}>
-      <Button
+    <View style={styles.conatiner}>
+      <Pressable
         style={styles.button}
-        title='Choose image from camera roll'
+        title='Choose image'
         onPress={() => {
           pickImage();
-        }}
-      />
+        }}>
+        <AntDesign name='pluscircleo' size={100} color='white' />
+      </Pressable>
       <View style={styles.imageContainer}>
         {image && <Image source={{ uri: image }} style={styles.image} />}
       </View>
@@ -39,13 +43,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(47, 163, 218, 0.4)',
   },
   button: {
     position: 'absolute',
-    bottom: 85,
-    backgroundColor: 'white',
-    width: '80%',
-    height: 50,
+    bottom: 40,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 35,

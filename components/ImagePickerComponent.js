@@ -3,7 +3,14 @@
 /** @format */
 
 import React, { useState } from 'react';
-import { Button, View, Image, StyleSheet, Pressable } from 'react-native';
+import {
+  Button,
+  View,
+  Image,
+  StyleSheet,
+  Pressable,
+  ImageBackground,
+} from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
 import { AntDesign } from '@expo/vector-icons';
 
@@ -22,19 +29,21 @@ const ImagePickerComponent = () => {
   };
 
   return (
-    <View style={styles.conatiner}>
+    <ImageBackground
+      source={require('../assets/gradient-2.jpg')}
+      style={styles.conatiner}>
       <Pressable
         style={styles.button}
         title='Choose image'
         onPress={() => {
           pickImage();
         }}>
-        <AntDesign name='pluscircleo' size={100} color='white' />
+        <AntDesign name='pluscircleo' size={65} color='white' />
       </Pressable>
       <View style={styles.imageContainer}>
         {image && <Image source={{ uri: image }} style={styles.image} />}
       </View>
-    </View>
+    </ImageBackground>
   );
 };
 

@@ -28,7 +28,8 @@ const Home = ({ navigation }) => {
   return (
     <ImageBackground
       source={require('../assets/bg.jpg')}
-      style={styles.container}>
+      style={styles.container}
+    >
       <View style={styles.overlayContainer}>
         <View style={styles.top}>
           <Image style={styles.logo} source={require('../assets/logo.png')} />
@@ -38,20 +39,23 @@ const Home = ({ navigation }) => {
             <Pressable
               style={styles.takePictureButton}
               title='go to camera'
-              onPress={takePictureButton}>
+              onPress={takePictureButton}
+            >
               <Text style={styles.text}>TAKE PICTURE</Text>
             </Pressable>
             <StatusBar barStyle='light-content' />
             <Pressable
               style={styles.chooseImageButton}
               title='Choose Image'
-              onPress={chooseImageButton}>
+              onPress={chooseImageButton}
+            >
               <Text style={styles.text}>CHOOSE IMAGE</Text>
             </Pressable>
             <Pressable
               style={styles.detectImageButton}
               title='Detect Image'
-              onPress={detectImageButton}>
+              onPress={detectImageButton}
+            >
               <Text style={styles.text}>DETECT IMAGE</Text>
             </Pressable>
           </View>
@@ -89,7 +93,7 @@ const styles = StyleSheet.create({
   },
   takePictureButton: {
     position: 'absolute',
-    bottom: 85,
+    bottom: -40,
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     width: '80%',
     height: 50,
@@ -99,7 +103,7 @@ const styles = StyleSheet.create({
   },
   chooseImageButton: {
     position: 'absolute',
-    bottom: 13.5,
+    bottom: -120,
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     width: '80%',
     height: 50,
@@ -109,7 +113,7 @@ const styles = StyleSheet.create({
   },
   detectImageButton: {
     position: 'absolute',
-    bottom: -57,
+    bottom: -200,
     backgroundColor: 'rgba(0, 0, 0, 0.3)',
     width: '80%',
     height: 50,

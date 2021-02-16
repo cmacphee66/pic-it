@@ -8,6 +8,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import CameraScreen from './screens/CameraScreen';
 import Home from './screens/Home';
 import DetectionScreen from './screens/DetectionScreen';
+// import DetectionScreen from './yuuup';
 import ImagePickerComponent from './components/ImagePickerComponent';
 
 LogBox.ignoreAllLogs(true);
